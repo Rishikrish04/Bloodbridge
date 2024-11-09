@@ -1,0 +1,29 @@
+<!-- respond.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BloodBridge - Respond to Request</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Respond to Blood Request</h1>
+    </header>
+    <main>
+        <h2>Request Details</h2>
+        <p>Date: {{ request_data.date }}</p>
+        <p>Location: {{ request_data.location }}</p>
+        <p>Urgency: {{ request_data.urgency }}</p>
+
+        <h2>Requester Information</h2>
+        <p>Full Name: {{ requester_data.full_name }}</p>
+        <p>Email: {{ requester_data.email }}</p>
+        <p>Blood Type: {{ requester_data.blood_type }}</p>
+
+        <form action="{{ url_for('donate_blood', request_id=request_id, requester_id=requester_id) }}" method="post">
+            <input type="submit" value="I want to donate blood">
+        </form>
+    </main>
+</body>
+</html>
