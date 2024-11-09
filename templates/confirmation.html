@@ -1,0 +1,19 @@
+<!-- confirmation.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BloodBridge - Donation Confirmation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Donation Confirmation</h1>
+    </header>
+    <main>
+        <h2>Thank You, {{ user['fullname'] }}!</h2>
+        <p>Your donation has been successfully recorded.</p>
+        <a href="{{ url_for('dashboard') }}">Go to Dashboard</a>
+    </main>
+</body>
+</html>
