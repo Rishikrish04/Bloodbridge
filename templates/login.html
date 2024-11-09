@@ -1,0 +1,26 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BloodBridge - Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Login to BloodBridge</h1>
+    </header>
+    <main>
+        <form action="{{ url_for('login') }}" method="post">
+            <label for="email">Email:</label>
+            <input type="email" name="email" required><br>
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" required><br>
+
+            <input type="submit" value="Login">
+        </form>
+        <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
+    </main>
+</body>
+</html>
