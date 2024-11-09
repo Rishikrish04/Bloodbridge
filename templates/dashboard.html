@@ -1,0 +1,30 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BloodBridge - Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome, {{ user['fullname'] }}</h1>
+        <nav>
+            <a href="{{ url_for('login') }}">Logout</a>
+            <a href="{{ url_for('req') }}">Request Blood</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Your Blood Requests</h2>
+        {% if requests %}
+            <ul>
+                {% for request in requests %}
+                    <li>{{ request.date }} - {{ request.location }} - <a href="{{ url_for('respond', requester_id=request.requester_id, request_id=request.request_id) }}">Respond</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No current blood requests.</p>
+        {% endif %}
+    </main>
+</body>
+</html>
